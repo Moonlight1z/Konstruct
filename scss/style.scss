@@ -1,0 +1,167 @@
+// Шрифты
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+// Цвета
+$color-main-text: #48555B;
+$color-blue-moments: #16ACE8;
+$color-footer-panels: #171819;
+$color-footer: #141A20;
+$color-btn: #00A4E5;
+$color-btn-hover: #0085FF;
+// Размеры
+// main text 16px
+$small-text: 13px;
+$h1: 60px;
+$h2: 30px;
+$h3: 18px;  
+// Миксины
+
+@mixin btn {
+    font-size: $small-text;
+    padding: 11px 30px;
+    background-color: $color-btn;
+    transition: 0.5s;
+
+    &:hover{
+        background-color: $color-btn-hover;
+    }
+}
+
+// обнуления 
+// --------------------------------------
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $color-main-text;
+    transition: 0.5s;
+
+    &:active {
+        text-decoration: none;
+        color: $color-blue-moments;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $color-blue-moments;
+    }
+}
+
+// ---------------------------------------
+
+html {
+    scroll-behavior: smooth;
+
+    body {
+        font-family: "Open Sans", sans-serif;
+        // font-family: "Bebas Neue", sans-serif;
+        color: $color-main-text;
+        font-weight: 400;
+    }
+}
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.banner{
+    background: url(../img/bg.png) center / cover no-repeat;
+    height: 100vh;
+}
+
+.banner-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 50px 0;
+    color: #ffff;
+
+    .banner-elements__presentation{
+        text-align: center;
+
+        span{
+            font-size: $h1;
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            letter-spacing: 5.71px;
+        }
+    }
+
+    .banner-elements__scroll{
+        font-size: $small-text;
+        font-weight: 600;
+    }
+}
+
+
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    font-size: $small-text;
+    font-weight: 600;
+
+    .navigation-items{
+        display: flex;
+        gap: 50px;
+        list-style: none;
+    }
+}
+
+
+
+.about{
+    position: relative;
+    text-align: center;
+    margin-top: 57px;
+    font-weight: 700;
+
+    &::after{
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 2px;
+        transform: translateX(-140%);
+        bottom: -10px;
+        background-color: $color-blue-moments;
+    }
+}
+
+.about-items{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 92px;
+
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 30px;
+
+        .about-text__text{
+            font-weight: 700;
+
+            span{
+                color: $color-blue-moments;
+            }
+        }
+
+        .about-text__text-fish{
+            font-size: $small-text;
+        }
+    }
+
+    .about-img{
+        display: flex;
+        gap: 20px;
+    }
+}
