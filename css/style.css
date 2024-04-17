@@ -33,6 +33,45 @@ html body {
   margin: 0 auto;
 }
 
+.btn {
+  font-size: 13px;
+  padding: 11px 30px;
+  background-color: #00A4E5;
+  border: none;
+  color: white;
+  transition: 0.5s;
+}
+.btn:hover {
+  background-color: #0085FF;
+  color: white;
+  cursor: pointer;
+}
+
+.burger {
+  --width: 30px;
+  --height: 30px;
+  --height-line: 4px;
+  --center: calc((var(--height) / 2) - (var(--height-line) / 2));
+  --center-: calc((var(--height) / -2) - (var(--height-line) / -2));
+  position: relative;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  background: transparent;
+  width: var(--width);
+  height: var(--height);
+  padding: 0;
+  cursor: pointer;
+}
+.burger .burger__line {
+  height: var(--height-line);
+  width: 100%;
+  background-color: #48555B;
+  transition: transform 0.3s ease 0s;
+}
+
 .banner {
   background: url(../img/bg.png) center/cover no-repeat;
   height: 100vh;
@@ -115,4 +154,287 @@ html body {
 .about-items .about-img {
   display: flex;
   gap: 20px;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 118px;
+}
+.services .services__title {
+  font-weight: 700;
+  letter-spacing: 2.3px;
+  position: relative;
+}
+.services .services__title::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  left: 0;
+  bottom: -10px;
+  background-color: #16ACE8;
+}
+.services .services-items {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.services .services-items .services-items__info-text {
+  font-size: 13px;
+}
+
+.work {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 27px;
+  margin-top: 78px;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 295px;
+  height: 330px;
+  border: 1px solid #E6E6E6;
+  padding: 38px 22px 40px 22px;
+}
+.work-card .work-card__title {
+  font-weight: 700;
+  letter-spacing: 0.43px;
+  padding: 25px 0 13px 0;
+}
+.work-card .work-card__text {
+  font-size: 13px;
+}
+
+.contact {
+  background: url(../img/city.png) center/cover no-repeat;
+  min-height: 500px;
+  margin-top: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+.contact .contact-data__title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.footer-panels {
+  background-color: #171819;
+}
+
+.registration-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  padding: 30px 0;
+}
+.registration-form .registration-form__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.85px;
+  color: white;
+}
+
+.form {
+  display: flex;
+}
+.form .form__input {
+  border: none;
+  padding: 10px 0 10px 16px;
+  width: 250px;
+  outline: none;
+}
+.form .form__input::-moz-placeholder {
+  font-size: 14px;
+}
+.form .form__input::placeholder {
+  font-size: 14px;
+}
+
+.footer {
+  background-color: #141A20;
+  color: white;
+  padding: 45px 0;
+}
+
+.footer-items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.footer-items .company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+.footer-items .links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.footer-items .links .links__title {
+  padding-bottom: 5px;
+}
+.footer-items .faq {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.footer-items .blog {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.footer-items .contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+.footer-items .mess {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.date-data {
+  padding: 22px 0;
+  text-align: center;
+  font-size: 13px;
+  color: white;
+}
+
+@media (max-width: 940px) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .burger {
+    display: inline-flex;
+  }
+  .navigation .navigation-items {
+    display: none;
+  }
+  .about-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+  }
+  .about-items .about-img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 118px;
+    gap: 20px;
+  }
+  .services .services-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+  }
+  .registration-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 13px;
+    gap: 20px;
+  }
+  .footer-items .company {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+  }
+  .footer-items .links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .footer-items .links .links__title {
+    padding-bottom: 5px;
+  }
+  .footer-items .faq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .footer-items .blog {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .footer-items .contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+  }
+  .footer-items .mess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
 }

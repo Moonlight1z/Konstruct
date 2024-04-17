@@ -12,17 +12,21 @@ $color-btn-hover: #0085FF;
 $small-text: 13px;
 $h1: 60px;
 $h2: 30px;
-$h3: 18px;  
+$h3: 18px;
 // Миксины
 
 @mixin btn {
     font-size: $small-text;
     padding: 11px 30px;
     background-color: $color-btn;
+    border: none;
+    color: #ffff;
     transition: 0.5s;
 
-    &:hover{
+    &:hover {
         background-color: $color-btn-hover;
+        color: #ffff;
+        cursor: pointer;
     }
 }
 
@@ -68,12 +72,43 @@ html {
     margin: 0 auto;
 }
 
-.banner{
+.btn {
+    @include btn;
+}
+
+.burger{
+    --width: 30px;
+    --height: 30px;
+    --height-line: 4px;
+    --center: calc((var(--height) / 2) - (var(--height-line) / 2));
+    --center-: calc((var(--height) / -2) - (var(--height-line) / -2));
+    position: relative;
+    z-index: 100;
+    display: none; // display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    background: transparent;
+    width: var(--width);
+    height: var(--height);
+    padding: 0;
+    cursor: pointer;
+
+    .burger__line{
+        height: var(--height-line);
+        width: 100%;
+        background-color: #48555B;
+        transition: transform 0.3s ease 0s;
+    }
+}
+
+
+.banner {
     background: url(../img/bg.png) center / cover no-repeat;
     height: 100vh;
 }
 
-.banner-elements{
+.banner-elements {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,10 +117,10 @@ html {
     padding: 50px 0;
     color: #ffff;
 
-    .banner-elements__presentation{
+    .banner-elements__presentation {
         text-align: center;
 
-        span{
+        span {
             font-size: $h1;
             font-family: "Bebas Neue", sans-serif;
             font-weight: 400;
@@ -93,7 +128,7 @@ html {
         }
     }
 
-    .banner-elements__scroll{
+    .banner-elements__scroll {
         font-size: $small-text;
         font-weight: 600;
     }
@@ -101,14 +136,14 @@ html {
 
 
 
-.navigation{
+.navigation {
     display: flex;
     justify-content: space-between;
     padding: 24px 0;
     font-size: $small-text;
     font-weight: 600;
 
-    .navigation-items{
+    .navigation-items {
         display: flex;
         gap: 50px;
         list-style: none;
@@ -117,13 +152,13 @@ html {
 
 
 
-.about{
+.about {
     position: relative;
     text-align: center;
     margin-top: 57px;
     font-weight: 700;
 
-    &::after{
+    &::after {
         position: absolute;
         content: '';
         width: 50px;
@@ -134,34 +169,356 @@ html {
     }
 }
 
-.about-items{
+.about-items {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin-top: 92px;
 
-    .about-text{
+    .about-text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         gap: 30px;
 
-        .about-text__text{
+        .about-text__text {
             font-weight: 700;
 
-            span{
+            span {
                 color: $color-blue-moments;
             }
         }
 
-        .about-text__text-fish{
+        .about-text__text-fish {
             font-size: $small-text;
         }
     }
 
-    .about-img{
+    .about-img {
         display: flex;
         gap: 20px;
+    }
+}
+
+
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 118px;
+
+    .services__title {
+        font-weight: 700;
+        letter-spacing: 2.3px;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: 45px;
+            height: 2px;
+            left: 0;
+            bottom: -10px;
+            background-color: $color-blue-moments;
+        }
+    }
+
+    .services-items {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        .services-items__info-text {
+            font-size: $small-text;
+
+        }
+    }
+}
+
+.work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 27px;
+    margin-top: 78px;
+
+}
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 295px;
+    height: 330px;
+    border: 1px solid #E6E6E6;
+    padding: 38px 22px 40px 22px;
+
+    .work-card__title {
+        font-weight: 700;
+        letter-spacing: 0.43px;
+        padding: 25px 0 13px 0;
+    }
+
+    .work-card__text {
+        font-size: $small-text;
+    }
+}
+
+.contact {
+    background: url(../img/city.png) center / cover no-repeat;
+    min-height: 500px;
+    margin-top: 115px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+
+    .contact-data__title {
+        text-align: center;
+        font-size: $h2;
+        font-weight: 700;
+    }
+}
+
+.footer-panels{
+    background-color: $color-footer-panels;
+}
+
+.registration-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    padding: 30px 0;
+
+    .registration-form__title{
+        font-size: $h3;
+        font-weight: 700;
+        letter-spacing: 0.85px;
+        color: #ffff;
+    }
+}
+
+.form{
+    display: flex;
+    
+    .form__input{
+        border: none;
+        padding: 10px 0 10px 16px;
+        width: 250px;
+        outline: none;
+
+        &::placeholder {
+            font-size: 14px;
+        }
+    }
+}
+
+.footer{
+    background-color: $color-footer;
+    color: #ffff;
+    padding: 45px 0;
+}
+
+.footer-items{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: $small-text;
+
+
+    .company{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .links{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 700;
+
+        .links__title{
+            padding-bottom: 5px;
+        }
+    }
+
+    .faq{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 700;
+    }
+                                    // DRY такой: :>
+    .blog{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 700;
+    }
+
+    .contact-us{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .mess{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+.date-data{
+    padding: 22px 0;
+    text-align: center;
+    font-size: $small-text;
+    color: #ffff;
+}
+
+
+
+@media (max-width: 940px){
+    .container{
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .burger{
+        display: inline-flex;
+    }
+
+    .navigation {
+        .navigation-items {
+            display: none;
+        }
+    }
+
+    .about-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+    
+        .about-img {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+
+    .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 118px;
+        gap: 20px;
+
+        .services-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            text-align: center;
+        }
+    }
+
+    .registration-form{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 35px;
+    }
+
+    .form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-items{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: $small-text;
+        gap: 20px;
+    
+        .company{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 15px;
+        }
+    
+        .links{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+    
+            .links__title{
+                padding-bottom: 5px;
+            }
+        }
+    
+        .faq{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+                                        // DRY такой: :>
+        .blog{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+    
+        .contact-us{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 15px;
+        }
+    
+        .mess{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
     }
 }
